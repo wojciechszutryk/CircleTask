@@ -12,13 +12,10 @@ interface ICreatedCircle{
 }
 
 const useStyles = makeStyles({
-    button: {
-        color: "#fff",
-        height: 100,
-        width: 100,
-        borderRadius: '50%',
-        textAlign: "center",
-        lineHeight: '100px',
+    icon: {
+        color: 'green',
+        width: 50,
+        height: 50
     },
 });
 
@@ -36,8 +33,8 @@ const AddCircleButton = () => {
     }
 
     return (
-        <Button className={classes.button} onClick={handleAddCircle}>
-            <AddCircleIcon />
+        <Button  onClick={handleAddCircle}>
+            <AddCircleIcon className={classes.icon}/>
         </Button>
     );
 };

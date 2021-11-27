@@ -1,24 +1,34 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 import {makeStyles} from "@mui/styles";
 import {Button} from "@mui/material";
 import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
+import {useMutation, useQueryClient} from "react-query";
+import {deleteCircle} from "functions";
 
 const useStyles = makeStyles({
-    button: {
-        color: "#fff",
-        height: 100,
-        width: 100,
-        borderRadius: '50%',
-        textAlign: "center",
-        lineHeight: '100px',
+    icon: {
+        color: 'red',
+        width: 50,
+        height: 50
     },
 });
 
-const DeleteCircleButton = () => {
+const DeleteCircleButton = ({lastCircleId}:{lastCircleId: string}) => {
     const classes = useStyles();
+    const queryClient = useQueryClient();
+    const deleteCircleMutation = useMutation((id: string) => deleteCircle({id}), {
+        onSuccess: () => {
+            queryClient.invalidateQueries('circles')
+        },
+    });
+
+    const handleRemoveCircle = useCallback((id) => {
+        deleteCircleMutation.mutate(id);
+    },[])
+
     return (
-        <Button className={classes.button}>
-            <RemoveCircleIcon />
+        <Button onClick={() => handleRemoveCircle(lastCircleId)}>
+            <RemoveCircleIcon className={classes.icon} />
         </Button>
     );
 };

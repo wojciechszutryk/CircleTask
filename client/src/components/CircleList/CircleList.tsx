@@ -1,9 +1,10 @@
 import React, {useMemo} from 'react';
 import {useQuery} from "react-query";
 import {fetchCircles} from "../../functions";
-import {Circle} from "components";
+import {AddCircleButton, Circle, DeleteCircleButton} from "components";
 import {Box} from "@mui/material";
 import {ClipLoader} from "react-spinners";
+import {makeStyles} from "@mui/styles";
 
 interface ICircle{
     id: string,
@@ -12,7 +13,20 @@ interface ICircle{
     position: number,
 }
 
+const useStyles = makeStyles({
+    buttonsWrapper: {
+        display: 'flex',
+        justifyContent: 'center'
+    },
+    circlesWrapper: {
+        display: 'flex',
+        justifyContent: 'center',
+        flexWrap: 'wrap'
+    },
+});
+
 const CircleList = () => {
+    const classes = useStyles();
     const { data: circles, isFetching } = useQuery(
         ['circles'],
         () => fetchCircles()
@@ -24,14 +38,25 @@ const CircleList = () => {
         ))
     },[circles]);
 
-    return (
-        isFetching ?
+    if(isFetching) return (
         <Box sx={{display: 'flex', justifyContent: 'center'}}>
             <ClipLoader size={150} />
         </Box>
-            :
+    )
+    if(circles.length <= 0) return (
+        <Box className={classes.circlesWrapper}>
+            <AddCircleButton/>
+        </Box>
+    )
+    return (
         <div>
-            {circlesList}
+            <Box className={classes.circlesWrapper}>
+                <AddCircleButton/>
+                <DeleteCircleButton lastCircleId={circles.at(-1).id}/>
+            </Box>
+            <Box className={classes.circlesWrapper}>
+                {circlesList}
+            </Box>
         </div>
     );
 };
