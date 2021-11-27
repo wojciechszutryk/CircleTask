@@ -1,6 +1,7 @@
 import express from 'express'
 import mongoose from 'mongoose'
 import cors from 'cors'
+import bodyParser from 'body-parser'
 import 'dotenv/config'
 import {router as circleRouter} from "./routers/circle";
 
@@ -17,6 +18,8 @@ mongoose.Promise = global.Promise;
 server.use(cors({
     origin: "*"
 }))
+server.use(bodyParser.urlencoded({extended: false}));
+server.use(bodyParser.json());
 
 server.use('/circle', circleRouter);
 
