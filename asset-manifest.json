@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.js": "/CircleTask/static/js/main.fc2e37fb.chunk.js",
+    "main.js.map": "/CircleTask/static/js/main.fc2e37fb.chunk.js.map",
+    "runtime-main.js": "/CircleTask/static/js/runtime-main.12cebf6a.js",
+    "runtime-main.js.map": "/CircleTask/static/js/runtime-main.12cebf6a.js.map",
+    "static/js/2.54d4a7b4.chunk.js": "/CircleTask/static/js/2.54d4a7b4.chunk.js",
+    "static/js/2.54d4a7b4.chunk.js.map": "/CircleTask/static/js/2.54d4a7b4.chunk.js.map",
+    "static/js/3.87c02a52.chunk.js": "/CircleTask/static/js/3.87c02a52.chunk.js",
+    "static/js/3.87c02a52.chunk.js.map": "/CircleTask/static/js/3.87c02a52.chunk.js.map",
+    "index.html": "/CircleTask/index.html",
+    "static/js/2.54d4a7b4.chunk.js.LICENSE.txt": "/CircleTask/static/js/2.54d4a7b4.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.12cebf6a.js",
+    "static/js/2.54d4a7b4.chunk.js",
+    "static/js/main.fc2e37fb.chunk.js"
+  ]
+}
