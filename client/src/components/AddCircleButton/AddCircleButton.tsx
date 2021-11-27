@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 import {makeStyles} from "@mui/styles";
 import {Button} from "@mui/material";
 import AddCircleIcon from '@mui/icons-material/AddCircle';
@@ -28,9 +28,9 @@ const AddCircleButton = () => {
         },
     });
 
-    const handleAddCircle = () => {
+    const handleAddCircle = useCallback(() => {
         addCircleMutation.mutate({color: getRandomColor(), text: 'lorem ipsum', position: 3})
-    }
+    },[addCircleMutation])
 
     return (
         <Button  onClick={handleAddCircle}>

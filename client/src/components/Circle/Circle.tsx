@@ -20,7 +20,6 @@ const useStyles = makeStyles({
 });
 
 const Circle = ({text, color}: {text: string, color: string}) => {
-    console.log(color)
     const classes = useStyles({color});
     return (
         <Box className={classes.circle}>

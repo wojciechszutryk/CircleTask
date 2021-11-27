@@ -24,7 +24,7 @@ const DeleteCircleButton = ({lastCircleId}:{lastCircleId: string}) => {
 
     const handleRemoveCircle = useCallback((id) => {
         deleteCircleMutation.mutate(id);
-    },[])
+    },[deleteCircleMutation])
 
     return (
         <Button onClick={() => handleRemoveCircle(lastCircleId)}>
