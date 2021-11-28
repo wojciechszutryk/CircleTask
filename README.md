@@ -1,4 +1,8 @@
-# Getting Started with Create React App
+Recruitment task.
+DEMO: https://wojciechszutryk.github.io/CircleTask/
+
+
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
