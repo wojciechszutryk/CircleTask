@@ -43,15 +43,16 @@ const CircleList = () => {
             <ClipLoader size={150} />
         </Box>
     )
-    if(circles.length <= 0) return (
+    if(!circles || circles.length <= 0) return (
         <Box className={classes.circlesWrapper}>
-            <AddCircleButton/>
+            <AddCircleButton newCirclePosition={0}/>
         </Box>
     )
+
     return (
         <div>
             <Box className={classes.circlesWrapper}>
-                <AddCircleButton/>
+                <AddCircleButton newCirclePosition={circles.length}/>
                 <DeleteCircleButton lastCircleId={circles.at(-1).id}/>
             </Box>
             <Box className={classes.circlesWrapper}>

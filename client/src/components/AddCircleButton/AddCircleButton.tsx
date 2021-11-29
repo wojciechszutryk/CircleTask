@@ -19,7 +19,7 @@ const useStyles = makeStyles({
     },
 });
 
-const AddCircleButton = () => {
+const AddCircleButton = ({newCirclePosition}:{newCirclePosition:number}) => {
     const classes = useStyles();
     const queryClient = useQueryClient();
     const addCircleMutation = useMutation(({color, text, position}:ICreatedCircle) => createCircle({ color, text, position }), {
@@ -29,7 +29,7 @@ const AddCircleButton = () => {
     });
 
     const handleAddCircle = useCallback(() => {
-        addCircleMutation.mutate({color: getRandomColor(), text: 'lorem ipsum', position: 3})
+        addCircleMutation.mutate({color: getRandomColor(), text: 'lorem ipsum', position: newCirclePosition})
     },[addCircleMutation])
 
     return (
